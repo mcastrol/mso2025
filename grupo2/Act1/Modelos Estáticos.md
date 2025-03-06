@@ -8,7 +8,6 @@
 
   
 
-**Enunciado (resumen)**  
 
 Hay una oficina de información turística con 3 servidores.  
 
