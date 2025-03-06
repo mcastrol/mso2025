@@ -2,16 +2,6 @@
 
   
 
-**Integrantes:**  
-
-- Integrante 1  
-
-- Integrante 2  
-
-  
-
----
-
   
 
 ## Actividad 1
