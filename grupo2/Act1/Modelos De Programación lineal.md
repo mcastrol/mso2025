@@ -1,3 +1,22 @@
+# Resolución de Actividad
+
+## Integrantes
+- Nombre del Integrante 1
+- Nombre del Integrante 2
+- Nombre del Integrante 3
+- Nombre del Integrante 4
+
+## Archivos de la Actividad
+
+A continuación se listan los documentos relacionados con la resolución de la actividad:
+
+- [Modelo.md](./Modelo.md)
+- [Modelos De Programación Lineal.md](./Modelos%20De%20Programación%20lineal.md)
+- [Modelos Dinámicos Determinísticos.md](./Modelos%20Dinámicos%20determinísticos.md)
+- [Modelos Estáticos.md](./Modelos%20Estáticos.md)
+
+---
+
 ## Ejercicio 1
 
 Un artesano alfarero desea optimizar la producción diaria de su taller.  
@@ -24,47 +43,43 @@ El alfarero vende cada Ánfora 1 a **100 €** y cada Ánfora 2 a **250 €*
 
 Definimos las **variables de decisión**:
 
-- $x_1$: número de Ánforas1 a producir al día  
-- $x_2$: número de Ánforas2 a producir al día  
+- $x_1$: número de Ánforas 1 a producir al día  
+- $x_2$: número de Ánforas 2 a producir al día  
 
 #### Función Objetivo
 
 Maximizar el **ingreso total** (beneficio, si se asume coste marginal despreciable):
 
 $$
-\text{Max } Z = 100\,x_1 \;+\; 250\,x_2
+\text{Max } Z = 100\,x_1 + 250\,x_2
 $$
 
 #### Restricciones
 
 1. **Capacidad del horno** (máx. 144 unidades/día):  
    $$
-   x_1 \;+\; x_2 \;\le\; 144
+   x_1 + x_2 \leq 144
    $$
 
 2. **Disponibilidad de arcilla A** (300 kg/día):  
    $$
-   1.5\,x_1 \;+\; 3\,x_2 \;\le\; 300
+   1.5\,x_1 + 3\,x_2 \leq 300
    $$
 
 3. **Disponibilidad de arcilla B** (16 kg/día):  
    $$
-   0 \times x_1 \;+\; 0.2\,x_2 \;\le\; 16
-   \quad\Longrightarrow\quad
-   0.2\,x_2 \;\le\; 16
+   0 \times x_1 + 0.2\,x_2 \leq 16
    $$
 
 4. **Tiempo de trabajo** (15 horas/día):  
    $$
-   0.1\,x_1 \;+\; 0.12\,x_2 \;\le\; 15
+   0.1\,x_1 + 0.12\,x_2 \leq 15
    $$
 
 5. **No negatividad**:  
    $$
-   x_1 \;\ge\; 0,\quad x_2 \;\ge\; 0
+   x_1 \geq 0,\quad x_2 \geq 0
    $$
-
-*(Estas restricciones garantizan que no se supere la capacidad del horno, ni los insumos de arcilla, ni el tiempo disponible.)*
 
 ---
 
@@ -104,34 +119,34 @@ Definimos las **variables de decisión**:
 Maximizar el **beneficio total**:
 
 $$
-\text{Max } Z = 10\,x_1 \;+\; 15\,x_2
+\text{Max } Z = 10\,x_1 + 15\,x_2
 $$
 
 #### Restricciones
 
 1. **Capacidad de apomazado** (200 h/semana):  
    $$
-   0.50\,x_1 \;+\; 0.45\,x_2 \;\le\; 200
+   0.50\,x_1 + 0.45\,x_2 \leq 200
    $$
 
 2. **Capacidad de pulido** (80 h/semana):  
    $$
-   0.30\,x_1 \;+\; 0.20\,x_2 \;\le\; 80
+   0.30\,x_1 + 0.20\,x_2 \leq 80
    $$
 
 3. **Capacidad de abrillantado** (60 h/semana):  
    $$
-   0.15\,x_1 \;+\; 0.30\,x_2 \;\le\; 60
+   0.15\,x_1 + 0.30\,x_2 \leq 60
    $$
 
 4. **Cantidad de sustancia de limpieza** (1,2 kg = 1200 mg/semana):  
    $$
-   25\,x_1 \;+\; 100\,x_2 \;\le\; 1200
+   25\,x_1 + 100\,x_2 \leq 1200
    $$
 
 5. **No negatividad**:
    $$
-   x_1 \;\ge\; 0,\quad x_2 \;\ge\; 0
+   x_1 \geq 0,\quad x_2 \geq 0
    $$
 
 Con estas restricciones, el modelo **lineal** describe la producción semanal máxima de baldosas Estándar y Lujo para aprovechar los recursos y **maximizar** la ganancia.
