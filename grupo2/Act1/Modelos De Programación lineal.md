@@ -135,7 +135,3 @@ $$
    $$
 
 Con estas restricciones, el modelo **lineal** describe la producción semanal máxima de baldosas Estándar y Lujo para aprovechar los recursos y **maximizar** la ganancia.
-
----
-
-**¡Listo!** Estos modelos de programación lineal recogen las ecuaciones para cada ejercicio, usando las restricciones de recursos y la función objetivo de maximización. Solo resta resolverlos (por métodos analíticos o con software) para obtener la solución óptima.
