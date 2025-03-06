@@ -260,7 +260,7 @@ Este modelo tiene como objetivo optimizar la asignación de personal de urgencia
         "TimeStamp": {
             "type": "string",
             "format": "datetime",
-            "description": "Fecha y hora del registro en formato ISO 8601"
+            "description": "Fecha y hora del registro en formato ISO"
         },
         "Pacientes": {
             "type": "integer",
@@ -363,3 +363,7 @@ Este modelo tiene como objetivo optimizar la asignación de personal de urgencia
 | 2023-01-02 03:00:00 | 13        |
 | 2023-01-02 04:00:00 | 18        |
 | 2023-01-02 05:00:00 | 14        |
+
+Los datos de entrada seran "correctos", es decir que la relación Empleados con el resto de parametros es optimo. Esto quiere decir que el numero de empleados en cada TimeStamp es el optimo para sacar el trabajo adelante sin complicaciones ni falta de personal.
+El modelo, mediante los datos historicos de tiempos anteriores, se entrenara para ser capaz de predecir el numero de pacientes optimo para los siguientes TimeStamp.
+Este modelo identifica tendencias y patrones en los datos de entrada para evaluar cual es el numero de empleados optimo.
