@@ -1,12 +1,12 @@
 # Act 2 – Definición de un modelo
 
 ## Grupo 4  
-**Anna Gargallo, JONATHAN GRANADO GOMEZ**  
+**Anna Gargallo, Jonathan Granado**  
 
-## Descripción del modelo
+## 1. Descripción del modelo
 El objetivo del modelo es evaluar el rendimiento de un equipo informático en los juegos actuales del mercado, proporcionando un marco para la recopilación y análisis de datos. De esta manera, se obtendrán diferentes métricas sencillas para el usuario y además una puntuación general sobre el rendimiento del sistema.
 
-## Parámetros de entrada
+## 2. Parámetros de entrada
 Los parámetros de entrada consisten en el diferente hardware y configuraciones del ordenador que se quiere evaluar. Aparte, se tienen que incluir la configuración de los videojuegos que se van a ejecutar para evaluar el rendimiento del sistema. Finalmente, se deben incluir las condiciones de pruebas a realizar.
 
 A continuación, se mostrará detalladamente el esqueleto que deben seguir y la información que tienen que contener los parámetros de entrada:
@@ -57,7 +57,7 @@ Aquí añadimos los softwares que corremos en segundo plano, la temperatura ambi
 }
 ```
 
-## Ejemplo del uso de parámetros de entrada con datos reales de un PC
+### Ejemplo del uso de parámetros de entrada con datos reales de un PC
 ```json
 {
   "hardware": {
@@ -110,7 +110,7 @@ Aquí añadimos los softwares que corremos en segundo plano, la temperatura ambi
 }
 ```
 
-## Proceso de operación
+## 3. Proceso de operación
 Se harán principalmente dos operaciones para determinar el rendimiento del sistema.
 
 1. Ejecución de diferentes Benchmarks sintéticos:
@@ -123,8 +123,8 @@ Se harán principalmente dos operaciones para determinar el rendimiento del sist
    - Shadow of the Tomb Raider
    - Monster Hunter Wilds
 
-## Parámetros de salida
-Los parámetros de salida nos muestran información sobre el rendimiento general del ordenador, la carga del sistema y la latencia. A continuación, se mostrará más detalladamente la información que muestra cada apartado:
+## 4. Parámetros de salida
+Los parámetros de salida nos muestran **información sobre el rendimiento general** del ordenador, la carga del sistema y la latencia. A continuación, se mostrará más detalladamente la información que muestra cada apartado:
 
 ### Rendimiento general
 Nos indica los diferentes medidores clave (típicos del gaming) para ver de manera user-friendly el rendimiento medio de nuestro sistema.
@@ -165,6 +165,50 @@ Este apartado se enfoca en la fluidez y estabilidad del sistema.
     "frame_time_promedio": "", <string>
     "frame_time_maximo": "", <string>
     "stuttering": <dict> {"eventos": 0, "duracion_promedio": ""}
+  }
+}
+```
+
+### Ejemplo de parámetros de salida
+```json
+{
+  "rendimiento_general": {
+    "fps_promedio": 85.4,
+    "fps_minimo": 57,
+    "fps_maximo": 124,
+    "percentil_1": 62,
+    "percentil_0_1": 48
+  },
+  "carga_sistema": {
+    "uso_cpu": {
+      "promedio": "45%",
+      "maximo": "78%"
+    },
+    "uso_gpu": {
+      "promedio": "97%",
+      "maximo": "100%"
+    },
+    "temperatura_cpu": {
+      "promedio": "68°C",
+      "maximo": "82°C"
+    },
+    "temperatura_gpu": {
+      "promedio": "72°C",
+      "maximo": "85°C"
+    },
+    "consumo_energia": {
+      "cpu": "95W",
+      "gpu": "280W",
+      "total_sistema": "400W"
+    }
+  },
+  "latencia_estabilidad": {
+    "frame_time_promedio": "11.7 ms",
+    "frame_time_maximo": "23.4 ms",
+    "stuttering": {
+      "eventos": 5,
+      "duracion_promedio": "120 ms"
+    }
   }
 }
 ```
