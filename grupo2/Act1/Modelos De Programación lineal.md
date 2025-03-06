@@ -1,9 +1,13 @@
 # Resolución de Actividad
 
+En este único archivo \`.md\) se incluye todo lo necesario para visualizar correctamente las fórmulas en entornos como GitHub (usando $$...$$ para las fórmulas en bloque). Además, se presenta el código Python completo para resolver los dos ejercicios con la librería **PuLP**.
+
+---
+
 ## Ejercicio 1
 
 Un artesano alfarero desea optimizar la producción diaria de su taller.  
-Fabrica dos tipos de ánforas (**Ánforas 1** y **Ánforas 2**) a partir de dos tipos de arcilla (**A** y **B**).  
+Fabrica dos tipos de ánforas (**Ánfora 1** y **Ánfora 2**) a partir de dos tipos de arcilla (**A** y **B**).  
 El alfarero vende cada Ánfora 1 a 100 € y cada Ánfora 2 a 250 €.
 
 ### Datos y Recursos Disponibles
@@ -26,13 +30,13 @@ El alfarero vende cada Ánfora 1 a 100 € y cada Ánfora 2 a 250 €.
 
 **Variables de decisión**:
 
-$$
+\[
 x_1 = \text{número de Ánforas 1 a producir al día}
-$$
+\]
 
-$$
+\[
 x_2 = \text{número de Ánforas 2 a producir al día}
-$$
+\]
 
 #### Función Objetivo
 
@@ -56,7 +60,9 @@ $$
 
 3. **Disponibilidad de arcilla B (16 kg/día)**  
    $$
-   0.2\,x_2 \;\le\; 16
+   0.2\,x_2 \;\le\; 16 
+   \quad\Longrightarrow\quad
+   x_2 \;\le\; 80
    $$
 
 4. **Tiempo de trabajo (15 horas/día)**  
@@ -101,13 +107,13 @@ La baldosa Estándar da un beneficio de 10 € por unidad, y la baldosa Lujo d
 
 **Variables de decisión**:
 
-$$
+\[
 x_1 = \text{número de baldosas Estándar a producir (por semana)}
-$$
+\]
 
-$$
+\[
 x_2 = \text{número de baldosas Lujo a producir (por semana)}
-$$
+\]
 
 #### Función Objetivo
 
@@ -146,4 +152,72 @@ $$
 
 ---
 
-**Fin de la resolución.**
+## Resolución con Python (PuLP)
+
+A continuación, se muestra un **solo archivo** (con dos secciones de código) para resolver los **dos problemas** de Programación Lineal.  
+Este archivo puede subirse directamente a GitHub como \`.md\).  
+Al abrirse, se verán los fragmentos de Python y las fórmulas en su versión Markdown (si tienes activa la extensión de renderizado matemático).
+
+```python
+# =========================================================
+#    Ejercicio 1: Ánforas (Producción diaria)
+# =========================================================
+
+import pulp
+
+# 1. Definir problema
+problem1 = pulp.LpProblem("Anforas", pulp.LpMaximize)
+
+# 2. Definir variables (no negativas, continuas)
+x1 = pulp.LpVariable('x1', lowBound=0, cat='Continuous')
+x2 = pulp.LpVariable('x2', lowBound=0, cat='Continuous')
+
+# 3. Función objetivo
+problem1 += 100*x1 + 250*x2, "Beneficio_Total"
+
+# 4. Restricciones
+problem1 += x1 + x2 <= 144, "Cap_horno"                   # Capacidad horno
+problem1 += 1.5*x1 + 3*x2 <= 300, "Arcilla_A"             # Arcilla A
+problem1 += 0.2*x2 <= 16, "Arcilla_B"                     # Arcilla B
+problem1 += 0.1*x1 + 0.12*x2 <= 15, "Tiempo"              # Tiempo total
+
+# 5. Resolver
+problem1.solve(pulp.PULP_CBC_CMD(msg=0))
+
+# 6. Imprimir resultados
+print("=== Ejercicio 1: Ánforas ===")
+print("Status:", pulp.LpStatus[problem1.status])
+print("x1 =", x1.varValue, "(Ánforas 1)")
+print("x2 =", x2.varValue, "(Ánforas 2)")
+print("Valor Óptimo (Beneficio) = ", pulp.value(problem1.objective))
+
+
+# =========================================================
+#    Ejercicio 2: Baldosas (Producción semanal)
+# =========================================================
+
+# 1. Definir problema
+problem2 = pulp.LpProblem("Baldosas", pulp.LpMaximize)
+
+# 2. Definir variables
+x1_2 = pulp.LpVariable('x1', lowBound=0, cat='Continuous')  # Baldosas Estándar
+x2_2 = pulp.LpVariable('x2', lowBound=0, cat='Continuous')  # Baldosas Lujo
+
+# 3. Función objetivo
+problem2 += 10*x1_2 + 15*x2_2, "Beneficio_Total"
+
+# 4. Restricciones
+problem2 += 0.50*x1_2 + 0.45*x2_2 <= 200, "Apomazado"
+problem2 += 0.30*x1_2 + 0.20*x2_2 <= 80,  "Pulido"
+problem2 += 0.15*x1_2 + 0.30*x2_2 <= 60,  "Abrillantado"
+problem2 += 25*x1_2 + 100*x2_2 <= 1200,   "Sustancia"
+
+# 5. Resolver
+problem2.solve(pulp.PULP_CBC_CMD(msg=0))
+
+# 6. Imprimir resultados
+print("\n=== Ejercicio 2: Baldosas ===")
+print("Status:", pulp.LpStatus[problem2.status])
+print("x1 (Estándar) =", x1_2.varValue)
+print("x2 (Lujo) =", x2_2.varValue)
+print("Valor Óptimo (Beneficio) =", pulp.value(problem2.objective))
