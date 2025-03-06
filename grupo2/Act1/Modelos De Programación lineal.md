@@ -1,6 +1,10 @@
 # Resolución de Actividad
 
-En este único archivo \`.md\) se incluye todo lo necesario para visualizar correctamente las fórmulas en entornos como GitHub (usando $$...$$ para las fórmulas en bloque). Además, se presenta el código Python completo para resolver los dos ejercicios con la librería **PuLP**.
+Este archivo usa la notación de *escapado doble* con `\\[` y `\\(` para intentar mostrar **fórmulas matemáticas** en GitHub.  
+Recuerda que GitHub, por defecto, **no** soporta LaTeX nativo en Markdown. Para ver las fórmulas, normalmente se requiere una extensión o configurar MathJax en GitHub Pages con *kramdown* u otro método.
+
+Aun así, con `\\[` y `\\]` (para bloques) y `\\(` y `\\)` (para inline), muchos visores de Markdown (incluyendo algunas extensiones de navegador) pueden representar correctamente las expresiones matemáticas.  
+Si no se visualizan de inmediato en GitHub, instala alguna extensión como “**MathJax Plugin for Github**” o “**Latex Viewer**”.
 
 ---
 
@@ -30,50 +34,51 @@ El alfarero vende cada Ánfora 1 a 100 € y cada Ánfora 2 a 250 €.
 
 **Variables de decisión**:
 
-\[
+\\[
 x_1 = \text{número de Ánforas 1 a producir al día}
-\]
+\\]
 
-\[
+\\[
 x_2 = \text{número de Ánforas 2 a producir al día}
-\]
+\\]
 
 #### Función Objetivo
 
 Maximizar el ingreso total:
 
-$$
-\max Z = 100\,x_1 + 250\,x_2
-$$
+\\[
+\max \; Z = 100 \, x_1 \;+\; 250 \, x_2
+\\]
 
 #### Restricciones
 
 1. **Capacidad del horno (máx. 144 unidades/día)**  
-   $$
-   x_1 + x_2 \;\le\; 144
-   $$
+   \\[
+   x_1 + x_2 \; \le \; 144
+   \\]
 
 2. **Disponibilidad de arcilla A (300 kg/día)**  
-   $$
-   1.5\,x_1 + 3\,x_2 \;\le\; 300
-   $$
+   \\[
+   1.5 \, x_1 + 3 \, x_2 \; \le \; 300
+   \\]
 
 3. **Disponibilidad de arcilla B (16 kg/día)**  
-   $$
-   0.2\,x_2 \;\le\; 16 
-   \quad\Longrightarrow\quad
-   x_2 \;\le\; 80
-   $$
+   \\[
+   0.2 \, x_2 \; \le \; 16
+   \\]
+   \\[
+   \Longrightarrow \quad x_2 \; \le \; 80
+   \\]
 
 4. **Tiempo de trabajo (15 horas/día)**  
-   $$
-   0.1\,x_1 + 0.12\,x_2 \;\le\; 15
-   $$
+   \\[
+   0.1 \, x_1 + 0.12 \, x_2 \; \le \; 15
+   \\]
 
 5. **No negatividad**  
-   $$
-   x_1 \ge 0,\quad x_2 \ge 0
-   $$
+   \\[
+   x_1 \ge 0, \quad x_2 \ge 0
+   \\]
 
 ---
 
@@ -89,7 +94,7 @@ La baldosa Estándar da un beneficio de 10 € por unidad, y la baldosa Lujo d
 - **Capacidad de apomazado**: 200 h/semana  
 - **Capacidad de pulido**: 80 h/semana  
 - **Capacidad de abrillantado**: 60 h/semana  
-- **Sustancia de limpieza**: 1,2 kg (1200 mg) por semana  
+- **Sustancia de limpieza**: 1.2 kg (1200 mg) por semana  
   - Estándar usa 25 mg/unidad  
   - Lujo usa 100 mg/unidad  
 
@@ -107,56 +112,55 @@ La baldosa Estándar da un beneficio de 10 € por unidad, y la baldosa Lujo d
 
 **Variables de decisión**:
 
-\[
+\\[
 x_1 = \text{número de baldosas Estándar a producir (por semana)}
-\]
+\\]
 
-\[
+\\[
 x_2 = \text{número de baldosas Lujo a producir (por semana)}
-\]
+\\]
 
 #### Función Objetivo
 
 Maximizar el beneficio total:
 
-$$
-\max Z = 10\,x_1 + 15\,x_2
-$$
+\\[
+\max \; Z = 10 \, x_1 \;+\; 15 \, x_2
+\\]
 
 #### Restricciones
 
 1. **Capacidad de apomazado (200 h/semana)**  
-   $$
-   0.50\,x_1 + 0.45\,x_2 \;\le\; 200
-   $$
+   \\[
+   0.50 \, x_1 + 0.45 \, x_2 \; \le \; 200
+   \\]
 
 2. **Capacidad de pulido (80 h/semana)**  
-   $$
-   0.30\,x_1 + 0.20\,x_2 \;\le\; 80
-   $$
+   \\[
+   0.30 \, x_1 + 0.20 \, x_2 \; \le \; 80
+   \\]
 
 3. **Capacidad de abrillantado (60 h/semana)**  
-   $$
-   0.15\,x_1 + 0.30\,x_2 \;\le\; 60
-   $$
+   \\[
+   0.15 \, x_1 + 0.30 \, x_2 \; \le \; 60
+   \\]
 
-4. **Cantidad de sustancia de limpieza (1,2 kg = 1200 mg/semana)**  
-   $$
-   25\,x_1 + 100\,x_2 \;\le\; 1200
-   $$
+4. **Cantidad de sustancia de limpieza (1.2 kg = 1200 mg/semana)**  
+   \\[
+   25 \, x_1 + 100 \, x_2 \; \le \; 1200
+   \\]
 
 5. **No negatividad**  
-   $$
-   x_1 \ge 0,\quad x_2 \ge 0
-   $$
+   \\[
+   x_1 \ge 0, \quad x_2 \ge 0
+   \\]
 
 ---
 
 ## Resolución con Python (PuLP)
 
-A continuación, se muestra un **solo archivo** (con dos secciones de código) para resolver los **dos problemas** de Programación Lineal.  
-Este archivo puede subirse directamente a GitHub como \`.md\).  
-Al abrirse, se verán los fragmentos de Python y las fórmulas en su versión Markdown (si tienes activa la extensión de renderizado matemático).
+A continuación, se muestra **todo el código** en un *solo archivo* \`.md\) para resolver los **dos ejercicios**.  
+Si deseas ejecutarlo, pega estos bloques en un archivo `.py` o en un cuaderno Jupyter. En GitHub, verás el código en texto plano.
 
 ```python
 # =========================================================
@@ -168,9 +172,9 @@ import pulp
 # 1. Definir problema
 problem1 = pulp.LpProblem("Anforas", pulp.LpMaximize)
 
-# 2. Definir variables (no negativas, continuas)
-x1 = pulp.LpVariable('x1', lowBound=0, cat='Continuous')
-x2 = pulp.LpVariable('x2', lowBound=0, cat='Continuous')
+# 2. Definir variables
+x1 = pulp.LpVariable('x1', lowBound=0, cat='Continuous')  # Ánforas 1
+x2 = pulp.LpVariable('x2', lowBound=0, cat='Continuous')  # Ánforas 2
 
 # 3. Función objetivo
 problem1 += 100*x1 + 250*x2, "Beneficio_Total"
