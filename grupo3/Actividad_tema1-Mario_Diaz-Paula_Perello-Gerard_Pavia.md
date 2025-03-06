@@ -1,4 +1,4 @@
- # Actividad tema 1 Grupo3
+# Actividad tema 1 Grupo3 Mario Diaz, Paula Perello, Gerard Pavia
 ## **Modelos estaticos**
 
 #### **Actividad 1:**
@@ -249,23 +249,117 @@ Los modelos dinámicos identificados son:
 
 #### **Definir un modelo que requiera una estructura compleja de datos de entrada.**
 
-**Modelo para asignar orden en urgencias hospitalarias.**
+Este modelo tiene como objetivo optimizar la asignación de personal de urgencias en función de la demanda de pacientes esperada en un centro de salud. A partir de un conjunto de datos históricos, se analizarán factores clave como el día de la semana, la temperatura, la existencia de festivos y eventos especiales para predecir cuántos enfermeros serán necesarios en cada hora.
 
-Categorías: <list> ['gravedad', 'hora_llegada', 'edad']
 
-Weights: <dictionary> = {'gravedad': 0.6,'hora_llegada':0.3, 'edad':0.3}
+## **Entrada del Modelo**
 
-**Pacientes** <list[dictionary]> [
+```json
+{
+    "schema": {
+        "TimeStamp": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Fecha y hora del registro en formato ISO 8601"
+        },
+        "Pacientes": {
+            "type": "integer",
+            "description": "Número de pacientes registrados en el hospital en esa franja horaria"
+        },
+        "Empleados": {
+            "type": "integer",
+            "description": "Cantidad de empleados presentes en el hospital en ese momento"
+        },
+        "Dia de la semana": {
+            "type": "string",
+            "enum": ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"],
+            "description": "Día de la semana correspondiente a la fecha del registro"
+        },
+        "Festivo (SI, NO)": {
+            "type": "string",
+            "enum": ["SI", "NO"],
+            "description": "Indica si el día es festivo o no"
+        },
+        "Evento Especial (SI, NO)": {
+            "type": "string",
+            "enum": ["SI", "NO"],
+            "description": "Indica si hubo un evento especial ese día"
+        },
+        "Temperatura": {
+            "type": "integer",
+            "description": "Temperatura en grados Celsius registrada en ese momento"
+        },
+        "Lluvia (SI, NO)": {
+            "type": "string",
+            "enum": ["SI", "NO"],
+            "description": "Indica si hubo lluvia en ese momento"
+        }
+    }
+}
+```
 
-{'name: 'Gerard', 'gravedad': 5, 'hora_llegada':21, 'edad':21,
+### Ejemplo Entrada
 
-'name: 'Mario', 'gravedad': 9, 'hora_llegada':17, 'edad':25,  
+| TimeStamp             | Pacientes | Empleados | Dia de la semana | Festivo (SI, NO) | Evento Especial (SI, NO) | Temperatura | Lluvia (SI, NO) |
+| :-------------------- | :-------- | :-------- | :--------------- | :--------------- | :----------------------- | :---------- | :-------------- |
+| 2023-01-01 00:00:00   | 51        | 15        | diumenge         | SI               | NO                       | 19          | NO              |
+| 2023-01-01 01:00:00   | 6         | 22        | diumenge         | SI               | NO                       | 15          | NO              |
+| 2023-01-01 02:00:00   | 40        | 19        | diumenge         | SI               | NO                       | 9           | NO              |
+| 2023-01-01 03:00:00   | 29        | 13        | diumenge         | SI               | NO                       | 17          | SI              |
+| 2023-01-01 04:00:00   | 30        | 24        | diumenge         | SI               | NO                       | 18          | SI              |
+| 2023-01-01 05:00:00   | 22        | 27        | diumenge         | SI               | NO                       | 21          | SI              |
+| 2023-01-01 06:00:00   | 67        | 25        | diumenge         | SI               | NO                       | 14          | SI              |
+| 2023-01-01 07:00:00   | 62        | 18        | diumenge         | SI               | NO                       | 21          | NO              |
+| 2023-01-01 08:00:00   | 25        | 28        | diumenge         | SI               | NO                       | 24          | NO              |
+| 2023-01-01 09:00:00   | 30        | 12        | diumenge         | SI               | NO                       | 23          | NO              |
+| 2023-01-01 10:00:00   | 5         | 29        | diumenge         | SI               | NO                       | 24          | NO              |
+| 2023-01-01 11:00:00   | 14        | 20        | diumenge         | SI               | NO                       | 10          | NO              |
+| 2023-01-01 12:00:00   | 6         | 16        | diumenge         | SI               | NO                       | 11          | NO              |
+| 2023-01-01 13:00:00   | 36        | 13        | diumenge         | SI               | NO                       | 18          | SI              |
+| 2023-01-01 14:00:00   | 13        | 19        | diumenge         | SI               | NO                       | 22          | NO              |
+| 2023-01-01 15:00:00   | 64        | 13        | diumenge         | SI               | NO                       | 19          | NO              |
+| 2023-01-01 16:00:00   | 70        | 19        | diumenge         | SI               | NO                       | 23          | NO              |
+| 2023-01-01 17:00:00   | 68        | 10        | diumenge         | SI               | NO                       | 10          | NO              |
+| 2023-01-01 18:00:00   | 19        | 23        | diumenge         | SI               | NO                       | 12          | NO              |
+| 2023-01-01 19:00:00   | 70        | 27        | diumenge         | SI               | NO                       | 15          | NO              |
+| 2023-01-01 20:00:00   | 69        | 13        | diumenge         | SI               | NO                       | 5           | NO              |
+| 2023-01-01 21:00:00   | 39        | 13        | diumenge         | SI               | NO                       | 16          | NO              |
+| 2023-01-01 22:00:00   | 13        | 14        | diumenge         | SI               | NO                       | 21          | NO              |
+| 2023-01-01 23:00:00   | 68        | 30        | diumenge         | SI               | NO                       | 8           | NO              |
+| 2023-01-01 00:00:00   | 24        | 24        | dilluns          | NO               | NO                       | 19          | NO              |
+| 2023-01-02 01:00:00   | 22        | 27        | dilluns          | NO               | NO                       | 8           | NO              |
 
-'name: 'Paula', 'gravedad': 3, 'hora_llegada':16, 'edad':35,  
 
-]
 
-Función: asignar_prioridad()-->Definir el nombre con el score mas alto de acuerdo a los valores en las categorías y en los pesos
+##  **Salida del Modelo**
 
-Salida: <dictionary>
-{'name: ' Mario, 'score: '  18}
+```json
+{
+    "prediction": {
+        "Fecha": {
+            "type": "string",
+            "format": "date",
+            "description": "Fecha para la cual se realiza la predicción"
+        },
+        "Enfermeros_Necesarios": {
+            "type": "integer",
+            "description": "Cantidad estimada de enfermeros necesarios para la fecha dada"
+        },
+        "Confianza": {
+            "type": "number",
+            "format": "float",
+            "description": "Nivel de confianza en la predicción, expresado como un porcentaje (0-100%)"
+        }
+    }
+}
+```
+
+### Ejemplo Salida
+
+| TimeStamp           | Empleados |
+| :------------------ | :-------- |
+| 2023-01-02 02:00:00 | 20        |
+| 2023-01-02 02:00:00 | 16        |
+| 2023-01-02 03:00:00 | 13        |
+| 2023-01-02 04:00:00 | 18        |
+| 2023-01-02 05:00:00 | 14        |
