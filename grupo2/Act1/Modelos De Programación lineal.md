@@ -1,22 +1,5 @@
 # Resolución de Actividad
 
-## Integrantes
-- Nombre del Integrante 1
-- Nombre del Integrante 2
-- Nombre del Integrante 3
-- Nombre del Integrante 4
-
-## Archivos de la Actividad
-
-A continuación se listan los documentos relacionados con la resolución de la actividad:
-
-- [Modelo.md](./Modelo.md)
-- [Modelos De Programación Lineal.md](./Modelos%20De%20Programación%20lineal.md)
-- [Modelos Dinámicos Determinísticos.md](./Modelos%20Dinámicos%20determinísticos.md)
-- [Modelos Estáticos.md](./Modelos%20Estáticos.md)
-
----
-
 ## Ejercicio 1
 
 Un artesano alfarero desea optimizar la producción diaria de su taller.  
@@ -51,7 +34,7 @@ Definimos las **variables de decisión**:
 Maximizar el **ingreso total** (beneficio, si se asume coste marginal despreciable):
 
 $$
-\text{Max } Z = 100\,x_1 + 250\,x_2
+\text{Max } Z = 100 \cdot x_1 + 250 \cdot x_2
 $$
 
 #### Restricciones
@@ -63,22 +46,22 @@ $$
 
 2. **Disponibilidad de arcilla A** (300 kg/día):  
    $$
-   1.5\,x_1 + 3\,x_2 \leq 300
+   1.5 \cdot x_1 + 3 \cdot x_2 \leq 300
    $$
 
 3. **Disponibilidad de arcilla B** (16 kg/día):  
    $$
-   0 \times x_1 + 0.2\,x_2 \leq 16
+   0 \cdot x_1 + 0.2 \cdot x_2 \leq 16
    $$
 
 4. **Tiempo de trabajo** (15 horas/día):  
    $$
-   0.1\,x_1 + 0.12\,x_2 \leq 15
+   0.1 \cdot x_1 + 0.12 \cdot x_2 \leq 15
    $$
 
 5. **No negatividad**:  
    $$
-   x_1 \geq 0,\quad x_2 \geq 0
+   x_1 \geq 0, \quad x_2 \geq 0
    $$
 
 ---
@@ -119,34 +102,32 @@ Definimos las **variables de decisión**:
 Maximizar el **beneficio total**:
 
 $$
-\text{Max } Z = 10\,x_1 + 15\,x_2
+\text{Max } Z = 10 \cdot x_1 + 15 \cdot x_2
 $$
 
 #### Restricciones
 
 1. **Capacidad de apomazado** (200 h/semana):  
    $$
-   0.50\,x_1 + 0.45\,x_2 \leq 200
+   0.50 \cdot x_1 + 0.45 \cdot x_2 \leq 200
    $$
 
 2. **Capacidad de pulido** (80 h/semana):  
    $$
-   0.30\,x_1 + 0.20\,x_2 \leq 80
+   0.30 \cdot x_1 + 0.20 \cdot x_2 \leq 80
    $$
 
 3. **Capacidad de abrillantado** (60 h/semana):  
    $$
-   0.15\,x_1 + 0.30\,x_2 \leq 60
+   0.15 \cdot x_1 + 0.30 \cdot x_2 \leq 60
    $$
 
 4. **Cantidad de sustancia de limpieza** (1,2 kg = 1200 mg/semana):  
    $$
-   25\,x_1 + 100\,x_2 \leq 1200
+   25 \cdot x_1 + 100 \cdot x_2 \leq 1200
    $$
 
 5. **No negatividad**:
    $$
-   x_1 \geq 0,\quad x_2 \geq 0
+   x_1 \geq 0, \quad x_2 \geq 0
    $$
-
-Con estas restricciones, el modelo **lineal** describe la producción semanal máxima de baldosas Estándar y Lujo para aprovechar los recursos y **maximizar** la ganancia.
