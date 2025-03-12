@@ -3,7 +3,7 @@
 Creamos un modelo para determinar cuál es la mejor provincia para poner una tienda de productos para mascotas, considerando diferentes aspectos como: demanda, costos operativos, competencia, ingreso promedio, densidad de las mascotas y accesibilidad para las mascotas.
 
 - Este modelo es especifico para una tienda de productos para mascotas pero se podrían reutilizar la mayoría de categorias que tenemos en nuestro modelo.
-- Es un modelo estático ya que no depende del tiempo, es un modelo discreto porque maneja datos categóricos y numéricos discretos y es un modelo determinístico ya que los datos son fijos. 
+- Además vamos a hacer una proyección a 5 años para ver que provincia será la mejor en el futuro
 
 #### ***PARAMETROS DE ENTRADA***
 
@@ -50,13 +50,33 @@ provincias <list[dictionary]>= [
 {'nombre': 'Badajoz', 'demanda': 3, 'costos_operativos': 8, 'competencia': 3, 'ingreso_promedio': 5, 'densidad_mascotas': 6, 'accesibilidad_mascotas': 5},
 ]
 #### ***FUNCIÓN***
-
-seleccionar_mejor_provincia: seleccionará la mejor provincia en base al valor de la categoría por el peso de la categoría.
+1-Seleccionar_mejor_provincia: seleccionará la mejor provincia en base al valor de la categoría por el peso de la categoría.
 ∑ (valor de la categoría x  peso de la categoría) = resultado
+
+2- Proyección_mejor_provincia: Se seleccionará la mejor provincia en aplicando a su valor actual una proyección basada en crecimientos lineales y compuestos, los crecimientos de cada variable serán estos:
+
+Demanda: +0.2 unidades por año. 
+Costos operativos: +3% anual (afectados por inflación). 
+Competencia: +1% anual, con ajuste final (-0.5) para evitar valores irreales. 
+Ingreso promedio: +0.2 unidades por año. 
+Densidad de mascotas: +0.15 unidades por año. 
+Accesibilidad para mascotas: +0.15 unidades por año. 
+Lineal para demanda, ingreso promedio, densidad y accesibilidad. Compuesto para costos operativos y competencia
+
+Crecimiento lineal: Valor Año X = Valor Año X-1 + (Cambio Anual x 5)
+Crecimiento compuesto: Valor Año X = Valor Año X-1 x (1+ Tasa)^5
 #### ***PARAMETROS DE SALIDA***
 
-ejemplo de un parámetro de salida: 
+Parámetro de salida selección mejor provincia actual:
 {'nombre': 'Madrid', 'resultado': 7.75}
 
 ya que:
 (9×0.3)+(5×0.2)+(8×0.15)+(9×0.15)+(7×0.1)+(8×0.1)=7.75
+
+Parámetro de salida selección mejor provincia proyección:
+{'nombre': 'Barcelona', 'resultado_proy': 8.12}
+
+ya que:
+Una vez aplicadas las formulas de proyección en cada variable
+(9.93×0.3)+(5.80×0.2)+(8.41×0.15)+(9.93×0.15)+(7.54×0.1)+(8.6×0.1)=8.12
+
