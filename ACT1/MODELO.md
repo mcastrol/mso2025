@@ -19,7 +19,7 @@ para entender un poco cada categoría:
 * accesibilidad_mascotas: cantidad de parques, alquileres que dejan animales, etc. basicamente si esa provincia es pet friendly. 
 
 ##### **diccionario de pesos**
-weights<dictionary>= { 
+pesos<dictionary>= { 
 'demanda': 0.3, 
 'costos_operativos': 0.2, 
 'competencia': 0.15, 
@@ -50,8 +50,10 @@ provincias <list[dictionary]>= [
 {'nombre': 'Badajoz', 'demanda': 3, 'costos_operativos': 8, 'competencia': 3, 'ingreso_promedio': 5, 'densidad_mascotas': 6, 'accesibilidad_mascotas': 5},
 ]
 #### ***FUNCIÓN***
-1-Seleccionar_mejor_provincia: seleccionará la mejor provincia en base al valor de la categoría por el peso de la categoría.
-∑ (valor de la categoría x  peso de la categoría) = resultado
+1-Seleccionar_mejor_provincia: seleccionará la mejor provincia en base a una puntuación ponderada.
+Para cada provincia, se multiplicará el valor de cada categoría por su peso, y luego, se suman todos esos productos. 
+formula general:
+Resultado= sumatorio de (valor de la categoría x  peso de la categoría)
 
 2- Proyección_mejor_provincia: Se seleccionará la mejor provincia en aplicando a su valor actual una proyección basada en crecimientos lineales y compuestos, los crecimientos de cada variable serán estos:
 
@@ -63,8 +65,23 @@ Densidad de mascotas: +0.15 unidades por año.
 Accesibilidad para mascotas: +0.15 unidades por año. 
 Lineal para demanda, ingreso promedio, densidad y accesibilidad. Compuesto para costos operativos y competencia
 
+El siguiente será su parametro de entrada:
+#### ***PARAMETROS DE ENTRADA ADICIONALES***
+crecimientos = {
+'demanda': {'tipo': 'lineal', 'incremento': 0.2},
+'costos_operativos': {'tipo': 'compuesto', 'tasa': 0.03},
+'competencia': {'tipo': 'compuesto', 'tasa': 0.01, 'ajuste': -0.5},
+'ingreso_promedio': {'tipo': 'lineal', 'incremento': 0.2},
+'densidad_mascotas': {'tipo': 'lineal', 'incremento': 0.15},
+'accesibilidad_mascotas': {'tipo': 'lineal', 'incremento': 0.15}
+}
+
+Años de proyección: 5
 Crecimiento lineal: Valor Año X = Valor Año X-1 + (Cambio Anual x 5)
 Crecimiento compuesto: Valor Año X = Valor Año X-1 x (1+ Tasa)^5
+
+Una vez proyectados todos los valores de cada categoría, se calcula una nueva puntuación para cada provincia de la misma forma que en el modelo actual, es decir: sumando el valor proyectado de cada categoría multiplicado por su peso. Este resultado se guarda en el parámetro `resultado_proy` de cada provincia.
+
 #### ***PARAMETROS DE SALIDA***
 
 Parámetro de salida selección mejor provincia actual:
@@ -76,7 +93,6 @@ ya que:
 Parámetro de salida selección mejor provincia proyección:
 {'nombre': 'Barcelona', 'resultado_proy': 8.12}
 
-ya que:
-Una vez aplicadas las formulas de proyección en cada variable
+ya que, una vez aplicadas las formulas de proyección en cada variable:
 (9.93×0.3)+(5.80×0.2)+(8.41×0.15)+(9.93×0.15)+(7.54×0.1)+(8.6×0.1)=8.12
 
