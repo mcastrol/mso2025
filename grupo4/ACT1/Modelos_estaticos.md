@@ -54,6 +54,7 @@ $$
 PorcentajeFranjaHoraria= Rfh_j = Bo_j/Ctot*100
 $$
 
+.
 
 $$
 PorcenajeDiario= ∑_j(Hf_j-Hi_j)*Rfh_j/24*100
