@@ -21,7 +21,7 @@ Una oficina de información turística está formada por un grupo de **tres trab
 ### Solución:
 
 $$
- PorcentageUtilización = (Mn/Nd) * 100 = (160min / 180min) * 100 = 88,89%
+ PorcentageUtilización = (Mn/Nd) * 100 = (160min / 180min) * 100 = 88,89 (porcentage) 
 $$
 
 ---
@@ -54,8 +54,9 @@ $$
 PorcentajeFranjaHoraria= Rfh_j = Bo_j/Ctot*100
 $$
 
+
 $$
-PorcenajeDiario= ∑_j(Hf_j-Hi_j*Rfh_j/24*100
+PorcenajeDiario= ∑_j(Hf_j-Hi_j)*Rfh_j/24*100
 $$
 
 ---
