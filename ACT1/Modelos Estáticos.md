@@ -13,13 +13,18 @@ Una oficina de información turística está formada por un grupo de tres trabaj
 
 ### **Fórmula:**
 El porcentaje de ocupación se calculara de la siguiente manera:
+
 % ocupación: (capacidad necesaria / capacidad disponible) x 100
 
 Capacidad disponible: 
 Cada informador tiene 60 min (1h), como son 3 trabajadores:
+formula de capacidad disponible: p x 60
 60min x 3p= 180min **CAPACIDAD DISPONIBLE**
 
 Capacidad necesaria: 
+formula de capacidad necesaria: (porcentaje de personas con atención breve × tiempo por persona breve)
++ (porcentaje de personas con atención detallada × tiempo por persona detallada)
+  
 (70px1min) + (30px 3min) = 160 min **CAPACIDAD NECESARIA**
 
 Entonces, calculamos el porcentaje de ocupación: 
@@ -52,7 +57,9 @@ Se desea calcular el **porcentaje de ocupación** de los puertos para cada franj
 
 ### **Ocupación para cada franja horaria**
 
- franja 0: (85MB/128MB) x 100: 66.41% = **PO0** (porcentaje de ocupación 0)
+Porcentaje de ocupación = (buffer ocupado / capacidad total del buffer) × 100
+
+franja 0: (85MB/128MB) x 100: 66.41% = **PO0** (porcentaje de ocupación 0)
 
 franja 1: (105MB/128MB) x 100: 82.03% = **PO1** (porcentaje de ocupación 1)
 
@@ -103,8 +110,7 @@ Hf= horario final
 
 Impresoras tienen 24h disponibles al día, 24h = 1440 min.  
 
-La formula general para la ocupación por impresora sería:
-(uso total de la impresora / 1440) x 100
+La formula general para la ocupación por impresora sería: (uso total de la impresora / 1440) x 100
 
 porcentaje de impresora 1(**OD1**):((O1(0) + O1(1) + O1(2)) / 1440 min) x 100:  **5.69%** 
 
@@ -115,8 +121,10 @@ porcentaje de impresora 3(**OD3**): ((O3(0) + O3(1) + O3(2)) / 1440 min) x 100: 
 #### **2. El promedio de uso diario y por franja diaria considerando las tres impresoras.**
 
 **Promedio por franja horaria:**  
+Porcentaje de ocupación por franja = (uso total de las impresoras en esa franja / minutos disponibles en la franja) × 100
 
 Disponibilidad de minutos por franja:
+
 0-8H: 8 x 60 = 480min
 8-18 H: 10 x 60 = 600min
 18-24H: 6 x 60= 360min
@@ -129,7 +137,7 @@ franja 2: (32 + 28 + 18/ 360Min) x 100=21.67% 
 
 **Promedio total:**
 
-(OD1 + OD2 + OD3) / 3= 5.23%
+Promedio total= (OD1 + OD2 + OD3) / 3= 5.23%
 
 ---
 ## **Ejercicio 4**
