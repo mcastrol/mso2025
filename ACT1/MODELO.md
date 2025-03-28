@@ -77,7 +77,9 @@ crecimientos = {
 }
 
 Años de proyección: 5
+
 Crecimiento lineal: Valor Año X = Valor Año X-1 + (Cambio Anual x 5)
+
 Crecimiento compuesto: Valor Año X = Valor Año X-1 x (1+ Tasa)^5
 
 Una vez proyectados todos los valores de cada categoría, se calcula una nueva puntuación para cada provincia de la misma forma que en el modelo actual, es decir: sumando el valor proyectado de cada categoría multiplicado por su peso. Este resultado se guarda en el parámetro `resultado_proy` de cada provincia.
