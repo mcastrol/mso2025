@@ -6,7 +6,7 @@
 
 Una oficina de información turística está formada por un grupo de **tres trabajadores**. A esta oficina llegan pidiendo información una media de **100 personas / hora**. De estas personas, un 70% solamente necesita mapas y folletos informativos, con lo que el tiempo de atención por los informadores es de 1 minuto. El 30% restante necesita información más detallada y se precisa una media de 3 minutos para atenderlos. Encuentra el grado de ocupación de los informadores desarrollando el modelo estático del sistema.
 
-### Variables y formulas:
+### Variables y fórmulas:
 
 - 3 trabajadores
 - 1 hora = 60 min
@@ -21,7 +21,7 @@ Una oficina de información turística está formada por un grupo de **tres trab
 ### Solución:
 
 $$
- PorcentageUtilización = (Mn/Nd) * 100 = (160min / 180min) * 100 = 88,89 (porcentage) 
+ PorcentageUtilización = (Mn/Nd) * 100 = (160min / 180min) * 100 = 88,89 %
 $$
 
 ---
@@ -40,7 +40,7 @@ Un enrutador tiene 4 puertos por donde entran y salen paquetes de datos durante 
 
 Asumiendo que durante dichas franjas horarias no se han registrado variaciones considerables se desea calcular el porcentaje de ocupación de los puertos para cada franja horaria y el promedio diario.
 
-### Variables y formulas:
+### Variables y fórmulas:
 
 | **Col (j)** | **Hora inicial (Hi)** | **Hora final (Hf)** | **Franja horaria (Fh)** | **Buffer ocupado (Bo)** | **Ratio por franja horaria (Rfh)** | **Fórmula Rfh** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -50,14 +50,17 @@ Asumiendo que durante dichas franjas horarias no se han registrado variaciones c
 
 ### Solución
 
+Porcentaje Franja Horaria:
+
 $$
 PorcentajeFranjaHoraria= Rfh_j = Bo_j/Ctot*100
 $$
 
-.
+Porcentaje Diario:
+
 
 $$
-PorcenajeDiario= ∑_j(Hf_j-Hi_j)*Rfh_j/24*100
+PorcentajeDiario= ∑_j(Hf_j-Hi_j)*Rfh_j/24*100
 $$
 
 ---
@@ -112,7 +115,7 @@ Se tiene que completar una actividad en N sesiones. Desarrollar una formula que 
 - El día de comienzo de la actividad
 - Los días que se han completado algunas sesiones. Se asume que la frecuencia promedio de las sesiones restantes será la misma que se ha tenido en el pasado.
 
-### Variables y formulas:
+### Variables y fórmulas:
 
 Día de inicio = Di
 
