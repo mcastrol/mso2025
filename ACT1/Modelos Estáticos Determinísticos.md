@@ -14,6 +14,8 @@ MN = Margen neto
 I = Impuestos 
 R = Resultado 
 
+Tomando los datos del año actual como base
+
 ### **Fórmulas**
 VAS = V X 1.03
 CIAS = CI X 1.03
@@ -47,6 +49,8 @@ IM = Impuestos
 UDI = Utilidad después de impuestos 
 A = Amortización 
 FC = Flujo de caja 
+
+Tomando los datos del año actual como base
 
 ### **Fórmulas**
 IAS = I X 1.1 
