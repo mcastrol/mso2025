@@ -155,6 +155,9 @@ Se tiene que completar una actividad en N sesiones. Desarrollar una formula que 
 ### **Paso 2: Calcular la frecuencia promedio**
 La frecuencia de sesiones se obtiene con la diferencia entre el último día y el primero, **dividida por las sesiones completadas menos 1**:
 
+F= Frecuencia sesiones 
+Diferencia último día y primero = 15-1
+Sesiones completadas = 5
 F = 15-1/5-1 
 
 F = 3.5 
@@ -163,6 +166,7 @@ Con estos cálculos sabemos que aproximadamente se tardan 3.5 días en completar
 
 ### **Paso 3: Calcular los días restantes**
 DR= DIAS RESTANTES 
+Sesiones totales = 5
 DR = 3.5 x 5 
 DR = 17.5
 
