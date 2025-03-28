@@ -5,7 +5,7 @@ Julieta Lazzati
 Desarrolle un modelo de evolución del cuadro de resultados para los próximos años de una empresa que prevé un crecimiento en sus ventas de 3% anual. El costo directo de ventas se incrementará de la misma manera, El margen bruto se calcula como las ventas menos los costos. La empresa prevé una reducción de sus costos fijos de un 1% anual. El margen neto es el margen bruto menos el coste fijo. El impuesto es del 30% sobre el margen Neto. Por último, el resultado es el margen neto menos los impuestos. Indique las fórmulas para el año i+1 en función del año i.
 
 ### **Nombres Datos:
-AA = Año anterior
+AS = Año siguiente
 V = Ventas 
 C= Costos
 MB = Margen bruto 
@@ -15,13 +15,13 @@ I = Impuestos
 R = Resultado 
 
 ### **Fórmulas**
-V = VAA X 1.03
-CI = CIAA X 1.03
-MB = VI + CI 
-CF = CFAA X 0.99
-MN = MB - CF
-I = MN X 0.3
-R = MN - I
+VAS = V X 1.03
+CIAS = CI X 1.03
+MBAS = VIAS + CIAS 
+CFAS = CF X 0.99
+MNAS = MBAS - CFAS
+IAS = MNAS X 0.3
+RAS = MNAS - IAS
 
 ### **Tabla**
 
@@ -49,13 +49,13 @@ A = Amortización
 FC = Flujo de caja 
 
 ### **Fórmulas**
-I = IAA X 1.1 
-G = I X 0.4 
-UAI = I - G 
-IM = UAI X 0.33
-UDI = UAI - IM
-A = 180K / 5 = 36K
-FC = UDI + A
+IAS = I X 1.1 
+GAS = IAS X 0.4 
+UAIAS = IAS - GAS 
+IMAS = UAIAS X 0.33
+UDIAS = UAIAS - IMAS
+AAS = 180K / 5 = 36K
+FCAS = UDIAS + AAS
 
 ### **Tabla**
 
