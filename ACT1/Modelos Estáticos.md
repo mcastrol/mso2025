@@ -18,7 +18,9 @@ El porcentaje de ocupación se calculara de la siguiente manera:
 
 Capacidad disponible: 
 Cada informador tiene 60 min (1h), como son 3 trabajadores:
+
 formula de capacidad disponible: p x 60
+
 60min x 3p= 180min **CAPACIDAD DISPONIBLE**
 
 Capacidad necesaria: 
