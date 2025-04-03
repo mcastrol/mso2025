@@ -2,6 +2,15 @@
 
 Integrantes: Aleix Martinez Pla, Marc Crespo Frago, Juan Pablo Guerrero Lopez.
 
+## Enunciado
+Desarrolle un modelo de evolución del cuadro de resultados para los próximos años
+de una empresa que prevé un crecimiento en sus ventas de 3% anual. El costo directo
+de ventas se incrementará de la misma manera, El margen bruto se calcula como las
+ventas menos los costos. La empresa prevé una reducción de sus costos fijos de un 1%
+anual. El margen neto es el margen bruto menos el coste fijo. El impuesto es del 30%
+sobre el margen Neto. Por último, el resultado es el margen neto menos los impuestos.
+Indique las fórmulas para el año i+1 en función del año i.
+
 ## Introducción
 
 Este documento presenta un modelo de proyección financiera para una empresa que prevé un crecimiento anual del **3%** en sus ventas y costos directos. Además, se considera una reducción del **1%** en los costos fijos anualmente. Se detallan las fórmulas utilizadas para calcular cada componente del cuadro de resultados en función del año anterior.
