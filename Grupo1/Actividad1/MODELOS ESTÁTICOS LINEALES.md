@@ -1,13 +1,24 @@
 Integrantes: Aleix Martinez Pla, Marc Crespo Frago, Juan Pablo Guerrero Lopez.
 # Modelo de Optimización - Producción de Ánforas
+Un artesano alfarero desea optimizar la producción diaria de su taller de
+alfarería. Fabrica dos tipos de ánforas (Anforas1 y Anforas2). Para ello utiliza un
+proceso de producción simple. Emplea dos tipos de arcilla (arcilla A y arcilla B)
+que mezcla en las proporciones adecuadas, les da forma durante un cierto
+tiempo y las pone a secar en el horno que posee hasta el día siguiente. El
+alfarero vende posteriormente las ánforas1 a 100€ Y las ánforas2 a 250€.
+El horno posee una capacidad para 144 ánforas. Diariamente, dispone de 300
+Kg de arcilla A y 16 Kg de arcilla B, y 15 horas de trabajo (él y su hijo).
+Las proporciones de arcilla A y B y el tiempo que necesita cada ánfora se
+recogen en la siguiente tabla:
+
 ## Introducción
 Este informe presenta la solución óptima para maximizar las ganancias en la producción de ánforas, considerando restricciones de recursos.
 
 ## Planteamiento del Problema
 
 El alfarero fabrica dos tipos de ánforas:
-- **Ánfora 1** se vende a **100€**.
-- **Ánfora 2** se vende a **250€**.
+- **Ánfora 1 $x_{1}$** se vende a **100€**.
+- **Ánfora 2 $x_{2}$** se vende a **250€**.
 
 ### **Función Objetivo: Maximizar la ganancia**
 
