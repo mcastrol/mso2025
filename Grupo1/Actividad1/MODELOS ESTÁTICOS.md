@@ -1,6 +1,18 @@
 Aleix Martínez Pla, Marc Crespo Frago, Juan Pablo Guerrero López
 # Modelo de Atención en Oficina de Información Turística (Ej-1)
 
+## Enunciado
+Una oficina de información turística está formada por un
+grupo de tres trabajadores. A esta oficina llegan pidiendo
+información una media de 100 personas / hora. De estas
+personas, un 70% solamente necesita mapas y folletos
+informativos, con lo que el tiempo de atención por los
+informadores es de 1 minuto. El 30% restante necesita
+información más detallada y se precisa una media de 3
+minutos para atenderlos. Encuentra el grado de ocupación
+de los informadores desarrollando el modelo estático
+del sistema.
+
 ## Descripción del Problema
 Una oficina de información turística cuenta con **3 trabajadores**.  
 Cada hora, en promedio, **100 personas** solicitan información.  
